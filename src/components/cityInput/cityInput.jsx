@@ -4,7 +4,7 @@ import useCity from "../../hooks/useCity"
 const CityInput = () => {
   const [city, setCity] = useState("");
   const [validZip, setValidZip] = useState(true);
-  const { cityDataIs, cityData } = useCity();
+  const { cityDataIs } = useCity();
 
   const handleChange = (e) => {
     const value = e.target.value;
