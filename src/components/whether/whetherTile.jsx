@@ -59,7 +59,7 @@ const WhetherTile = ({ city }) => {
               src="humidity.svg"
               style={{ width: "10%", height: "10%"}}
           />
-          <div><b>Humidity</b>  {humidity}</div>
+          <div><b>Humidity</b>  {humidity}%</div>
           
         </div>
         <div style={{ display: "flex", flexFlow: "row", alignItems: "center", gap: "0.2rem" }}>
@@ -76,7 +76,7 @@ const WhetherTile = ({ city }) => {
               src="wind.svg"
               style={{ width: "10%", height: "10% "}}
           />
-          <div><b>Wind Speed</b>  {windspeed}</div>
+          <div><b>Wind Speed</b>  {windspeed} mph</div>
         </div>
       </div>
     </div>
