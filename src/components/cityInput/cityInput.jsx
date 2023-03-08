@@ -4,13 +4,32 @@ import useCity from "../../hooks/useCity"
 const CityInput = () => {
   const [city, setCity] = useState("");
   const [validZip, setValidZip] = useState(true);
-  const { cityDataIs } = useCity();
+  const { cityDataIs, cityAlreadyThere } = useCity();
 
   const handleChange = (e) => {
     const value = e.target.value;
     if (/^[0-9]*$/.test(value)) {
       setCity(value);
     }
+  }
+
+  // const message = () => {
+  //   if (!validZip) return "Invalid Zip";
+  //   else if (cityAlreadyThere) return "Weather Info Already Present";
+  //   else return "Enter 5-Digit US Zip"
+  // }
+
+  const InputMessage = () => {
+    let message = 'Enter 5-Digit US Zip';
+    if (!validZip) {
+      message = "Invalid Zip";
+      return <h1>🌧️ {message} 🌧️</h1>
+    }
+    else if (cityAlreadyThere) {
+      message = "Weather Info Already Present";
+      return <h1>🌞 {message} 🌞</h1>
+    }
+    return <h1>{message}</h1>
   }
 
   const handleSubmit = (e) => {
@@ -35,11 +54,14 @@ const CityInput = () => {
       }, 1000);
     });
   }
+
+  // const inputHeading = message()
   return (
     <>
-      <h1>{validZip ? "Enter 5-Digit US Zip" : "Invalid Zip"}</h1>
+      {/* <h1>{inputHeading}</h1> */}
+      <InputMessage />
       <form onSubmit={handleSubmit} autoComplete="off">
-        <input maxLength={5} type="text" value={city} onChange={handleChange}/>
+        <input autoFocus={true} maxLength={5} type="text" value={city} onChange={handleChange}/>
         <button type="submit">Get Weather!</button>
       </form>
     </>
