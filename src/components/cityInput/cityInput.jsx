@@ -13,12 +13,6 @@ const CityInput = () => {
     }
   }
 
-  // const message = () => {
-  //   if (!validZip) return "Invalid Zip";
-  //   else if (cityAlreadyThere) return "Weather Info Already Present";
-  //   else return "Enter 5-Digit US Zip"
-  // }
-
   const InputMessage = () => {
     let message = 'Enter 5-Digit US Zip';
     if (!validZip) {
@@ -43,7 +37,7 @@ const CityInput = () => {
     .then((resJSON) => {
       const { name: cityName, lat: cityLat, lon: cityLon } = resJSON;
       const locationInfo = { cityName, cityLat, cityLon};
-      cityDataIs(locationInfo)
+      cityDataIs(locationInfo);
     })
     .catch((err) => {
       console.error(err);
@@ -55,10 +49,8 @@ const CityInput = () => {
     });
   }
 
-  // const inputHeading = message()
   return (
     <>
-      {/* <h1>{inputHeading}</h1> */}
       <InputMessage />
       <form onSubmit={handleSubmit} autoComplete="off">
         <input autoFocus={true} maxLength={5} type="text" value={city} onChange={handleChange}/>

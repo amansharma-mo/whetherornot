@@ -29,7 +29,6 @@ const WhetherTile = ({ city }) => {
         setVisibility(resJSON.visibility / 1000);
         setWineSpeed(resJSON.wind.speed);
         setWicon(resJSON.weather[0].icon);
-
       })
       .catch((err) => console.error(err));
     }
@@ -37,7 +36,7 @@ const WhetherTile = ({ city }) => {
 
   }, [])
 
-  const handleDelete = (cityToDelete) => {console.log("ctd:", cityToDelete); cityDataIsNot(cityToDelete);}
+  const handleDelete = (cityToDelete) =>  cityDataIsNot(cityToDelete);
   return (
     <div className={styles.whetherTileWrapper}>
       <button className={styles.whetherTileRemover} onClick={() => handleDelete(cityName)}>X</button>
